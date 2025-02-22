@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Trash Fort';
+    src: url('../assets/fonts/Trash/Trashfort-vmAX7.ttf') format('truetype');
+  }
+  
+  body {
+    font-family: 'Trash Fort', sans-serif;
+  }

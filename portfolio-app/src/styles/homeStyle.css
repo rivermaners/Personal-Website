@@ -1,0 +1,248 @@
+.home {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Original 'River Maners!' Styling */
+.home h1 {
+    font-size: 100px;
+    text-shadow: 0px 40px rgba(23,112,170,0.5), 0px 80px rgba(23,112,170,0.25);
+    position: absolute;
+    opacity: 0; /* Start hidden */
+    color: rgba(156, 3, 3, 255); /* Original deep red color */
+}
+
+/* Slide-in animations */
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Applying animations */
+.top-left.animate {
+    animation: slideInFromLeft 1s ease-out forwards;
+    top: 10px;
+    left: 20px;
+}
+
+.bottom-right.animate {
+    animation: slideInFromRight 1s ease-out forwards;
+    animation-delay: 0.3s;
+    bottom: 10px;
+    right: 20px;
+}
+
+.bottom-left.animate {
+    animation: slideInFromBottom 1s ease-out forwards;
+    animation-delay: 0.6s;
+    bottom: 10px;
+    left: 20px;
+}
+
+.top-right.animate {
+    animation: slideInFromTop 1s ease-out forwards;
+    animation-delay: 0.9s;
+    top: 10px;
+    right: 20px;
+}
+
+/* Image styles */
+.image-container {
+    position: relative;
+}
+
+.river-image {
+    width: 300px;
+    height: auto;
+}
+
+.spinning {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Spin button and chat button styles */
+.spin-button, .chat-button {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgba(23, 112, 170, 255); /* Blue text color */
+    border: none;
+    cursor: pointer;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 150px;
+    text-align: center;
+    padding: 0;
+    z-index: 1;
+    font-family: 'Trash Fort', sans-serif;
+    animation: flashText 0.5s infinite alternate;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.spin-button:hover, .chat-button:hover {
+    opacity: 0.8;
+    transform: scale(2);
+}
+
+/* Spin button position */
+.spin-button {
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    background-image: url('../assets/images/bubble.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Chat button position */
+.chat-button {
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    background-image: url('../assets/images/bubble.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Center text inside buttons */
+.spin-button span, .chat-button span {
+    font-size: 30px;
+    font-family: 'Trash Fort', sans-serif;
+    text-align: center;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Flashing text animation */
+@keyframes flashText {
+    0% {
+        color: rgba(156, 3, 3, 255);
+    }
+    50% {
+        color: rgba(23, 112, 170, 255);
+    }
+    100% {
+        color: rgba(156, 3, 3, 255);
+    }
+}
+
+.speech-bubble-home {
+    position: absolute !important;
+    top: 20px !important; /* Moves it up */
+    left: 60% !important; /* Moves it more to the right */
+    background-color: white !important;
+    font-weight: bold !important;
+    padding: 10px 20px !important; 
+    border-radius: 15px !important;
+    font-size: 30px !important;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2) !important;
+    animation: fadeIn 0.3s ease-in-out forwards !important;
+    opacity: 1 !important;
+    white-space: nowrap !important; /* Prevents text wrapping */
+    max-width: 600px !important; /* Limits bubble width */
+    min-width: 200px !important; /* Ensures a minimum width */
+    display: flex !important; /* Uses flexbox for centering */
+    justify-content: center !important; /* Centers text horizontally */
+    align-items: center !important; /* Centers text vertically */
+    text-align: center !important; /* Ensures text remains centered */
+}
+
+/* Ensure Text is Properly Centered */
+.speech-bubble-home span {
+    display: inline-block !important;
+    text-align: center !important;
+    min-width: 200px !important;
+    max-width: 600px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* Move Arrow to Bottom Left */
+.speech-bubble-home::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -10px !important; /* Places arrow at the bottom */
+    left: 15px !important; /* Moves arrow to the left side */
+    width: 0 !important;
+    height: 0 !important;
+    border-left: 10px solid transparent !important;
+    border-right: 10px solid transparent !important;
+    border-top: 10px solid white !important; /* Arrow points up */
+}
+
+
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
