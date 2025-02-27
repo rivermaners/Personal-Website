@@ -1,6 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/aboutStyle.css';
 import logo from '../assets/images/river-logo.png'; // Import the logo
+import river1 from '../assets/images/river1.jpg';
+import river2 from '../assets/images/river2.jpg';
+import river3 from '../assets/images/river3.jpg';
+import river4 from '../assets/images/river4.jpg';
+import river5 from '../assets/images/river5.jpg';
+import river6 from '../assets/images/river6.jpg';
+import river7 from '../assets/images/river7.jpg';
+import river8 from '../assets/images/river8.jpg';
+import river9 from '../assets/images/river9.jpg';
+import river10 from '../assets/images/river10.jpg';
 
 const welcomeMessages = [
   "Welcome to my About Page!",
@@ -10,99 +20,98 @@ const welcomeMessages = [
   "Let's talk about me!"
 ];
 
+const images = [river1, river2, river3, river4, river5, river6, river7, river8, river9, river10];
+
+const InfiniteSlideshow = ({ images, isSlideshowVisible }) => {
+  const slideshowRef = useRef(null);
+  useEffect(() => {
+    let scrollAmount = 0;
+    const scrollSpeed = -1;
+    const moveSlideshow = () => {
+      if (slideshowRef.current) {
+        scrollAmount += scrollSpeed;
+        if (scrollAmount <= -slideshowRef.current.scrollWidth / 2) {
+          scrollAmount = 0;
+        }
+        slideshowRef.current.style.transform = `translateX(${scrollAmount}px)`;
+      }
+      requestAnimationFrame(moveSlideshow);
+    };
+    requestAnimationFrame(moveSlideshow);
+  }, []);
+  return (
+    <div className={`slideshow-container ${isSlideshowVisible ? 'slide-in-bottom' : ''}`}>
+      <div className="slideshow-wrapper">
+        <div className="slideshow-track" ref={slideshowRef}>
+          {[...images, ...images].map((img, index) => (
+            <img key={index} src={img} alt={`Slide ${index + 1}`} className={`slideshow-image slide-${index % images.length}`} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const About = () => {
-  const aboutRef = useRef(null);
-  const bioRef = useRef(null);
   const logoRef = useRef(null);
   const headerRef = useRef(null);
-  const scrollTimeout = useRef(null); // Prevent multiple updates in quick succession
-
-  const [isLogoVisible, setIsLogoVisible] = useState(false);
+  const slideshowRef = useRef(null);
   const [showBubble, setShowBubble] = useState(false);
   const [bubbleMessage, setBubbleMessage] = useState("");
-  const [showScrollText, setShowScrollText] = useState(false);
-  const [showAbout, setShowAbout] = useState(false);
-  const [showBio, setShowBio] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+  const [isSlideshowVisible, setIsSlideshowVisible] = useState(false);
 
   useEffect(() => {
-    setIsLogoVisible(true);
-
     setTimeout(() => {
+      logoRef.current?.classList.add('spin-fade-in');
+    }, 100);
+
+    const bubbleTimeout = setTimeout(() => {
       const randomMessage = welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
       setBubbleMessage(randomMessage);
       setShowBubble(true);
-    }, 1700);
+    }, 1800);
 
-    setTimeout(() => setShowBubble(false), 5000);
-
-    setTimeout(() => {
-      setShowScrollText(true);
-    }, 1500);
+    const hideBubbleTimeout = setTimeout(() => {
+      setShowBubble(false);
+    }, 6800);
 
     const handleScroll = () => {
-      if (scrollTimeout.current) return;
-
-      scrollTimeout.current = requestAnimationFrame(() => {
-        if (aboutRef.current && !showAbout) {
-          const aboutTop = aboutRef.current.getBoundingClientRect().top;
-          if (aboutTop < window.innerHeight * 0.8) {
-            setShowAbout(true);
-          }
+      if (headerRef.current && !isHeaderVisible) {
+        const headerTop = headerRef.current.getBoundingClientRect().top;
+        if (headerTop < window.innerHeight * 0.8) {
+          setIsHeaderVisible(true);
         }
-
-        if (bioRef.current && !showBio) {
-          const bioTop = bioRef.current.getBoundingClientRect().top;
-          if (bioTop < window.innerHeight * 0.8) {
-            setShowBio(true);
-          }
+      }
+      if (slideshowRef.current && !isSlideshowVisible) {
+        const slideshowTop = slideshowRef.current.getBoundingClientRect().top;
+        if (slideshowTop < window.innerHeight * 0.9) {
+          setIsSlideshowVisible(true);
         }
-
-        if (headerRef.current && !isHeaderVisible) {
-          const headerTop = headerRef.current.getBoundingClientRect().top;
-          if (headerTop < window.innerHeight * 0.8) {
-            setIsHeaderVisible(true);
-          }
-        }
-
-        scrollTimeout.current = null;
-      });
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
+      clearTimeout(bubbleTimeout);
+      clearTimeout(hideBubbleTimeout);
       window.removeEventListener('scroll', handleScroll);
-      if (scrollTimeout.current) cancelAnimationFrame(scrollTimeout.current);
     };
-  }, [showAbout, showBio, isHeaderVisible]);
+  }, [isHeaderVisible, isSlideshowVisible]);
 
   return (
     <div className="about-page">
-      {/* Centered Logo at Start */}
-      <div ref={logoRef} className={`logo-container ${isLogoVisible ? 'spin-fade-in' : ''}`}>
+      <div ref={logoRef} className="logo-container">
         <img src={logo} alt="River Logo" className="river-logo" />
         {showBubble && <div className="speech-bubble-about"><span>{bubbleMessage}</span></div>}
-
-        {/* Scroll Down! with Flashing Arrows */}
-        {showScrollText && (
-          <div className="scroll-down">
-            <span className="arrow">↓</span> Scroll Down! <span className="arrow">↓</span>
-          </div>
-        )}
       </div>
-
-      {/* Single "Who is River Maners?" Section - Appears on Scroll */}
-      <div ref={aboutRef} className="about-container">
-        <div
-          ref={headerRef}
-          className={`who-is-header ${isHeaderVisible ? 'slide-in' : ''}`}
-        >
-          <h1>Who is River Maners</h1>
-        </div>
+      <div className="about-container">
+        <h1 ref={headerRef} className={`who-is-header ${isHeaderVisible ? 'slide-in' : ''}`}>Who is River Maners</h1>
       </div>
-
-      {/* Bio Section - Centered & Appears on Scroll */}
-      <div ref={bioRef} className={`bio-container ${showBio ? 'slide-in-bio' : ''}`}>
+      <div ref={slideshowRef}>
+        <InfiniteSlideshow images={images} isSlideshowVisible={isSlideshowVisible} />
+      </div>
+      <div className="bio-container">
         <div className="bio-content">
           <img src="/assets/images/river-photo.jpg" alt="River Maners" className="bio-image" />
           <div className="bio-text">

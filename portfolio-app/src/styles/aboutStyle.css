@@ -16,6 +16,7 @@
     transform: scale(1) rotate(360deg);
 }
 
+
 .river-logo {
     width: 300px;
     height: auto;
@@ -78,7 +79,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 80px;
+    font-size: 150px;
     color: rgba(23,112,170,255);
     width: 100%;
     margin: 50px 0;
@@ -94,19 +95,6 @@
 }
 
 
-/* Scroll Down! Text & Arrows */
-.scroll-down {
-    position: absolute;
-    bottom: -50px; 
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 70px;
-    font-weight: bold;
-    text-align: center;
-    animation: flashColors 0.8s infinite alternate; 
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards, flashColors 0.8s infinite alternate 1s;
-}
 
 @keyframes flashColors {
     0% {
@@ -176,4 +164,59 @@
 .bio-text {
     max-width: 700px;
     text-align: center;
+}
+
+/* Slideshow Container */
+.slideshow-wrapper {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    white-space: nowrap;
+}
+
+/* Track containing images */
+.slideshow-track {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between images */
+    animation: infiniteScroll 20s linear infinite;
+}
+
+/* Image styling */
+.slideshow-image {
+    width: 200px; /* Adjust as needed */
+    height: 250px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+
+/* Infinite scrolling animation */
+@keyframes infiniteScroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Initial hidden state for the slideshow */
+.slideshow-container {
+    opacity: 0;
+    transform: translateY(100px); /* Start off-screen at the bottom */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Slide in from the bottom */
+.slideshow-container.slide-in-bottom {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Push the 'Who is River Maners' text slightly */
+.who-is-header.slide-in {
+    transform: translateX(10px); /* Small push when the slideshow enters */
+    transition: transform 1s ease-out;
 }
