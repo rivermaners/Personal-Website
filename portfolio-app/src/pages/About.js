@@ -24,9 +24,12 @@ const images = [river1, river2, river3, river4, river5, river6, river7, river8, 
 
 const InfiniteSlideshow = ({ images, isSlideshowVisible }) => {
   const slideshowRef = useRef(null);
+  const animationRef = useRef(null);
+
   useEffect(() => {
     let scrollAmount = 0;
     const scrollSpeed = -1;
+
     const moveSlideshow = () => {
       if (slideshowRef.current) {
         scrollAmount += scrollSpeed;
@@ -35,10 +38,13 @@ const InfiniteSlideshow = ({ images, isSlideshowVisible }) => {
         }
         slideshowRef.current.style.transform = `translateX(${scrollAmount}px)`;
       }
-      requestAnimationFrame(moveSlideshow);
+      animationRef.current = requestAnimationFrame(moveSlideshow);
     };
-    requestAnimationFrame(moveSlideshow);
+
+    animationRef.current = requestAnimationFrame(moveSlideshow);
+    return () => cancelAnimationFrame(animationRef.current);
   }, []);
+
   return (
     <div className={`slideshow-container ${isSlideshowVisible ? 'slide-in-bottom' : ''}`}>
       <div className="slideshow-wrapper">
@@ -56,10 +62,12 @@ const About = () => {
   const logoRef = useRef(null);
   const headerRef = useRef(null);
   const slideshowRef = useRef(null);
+  const bioRef = useRef(null);
   const [showBubble, setShowBubble] = useState(false);
   const [bubbleMessage, setBubbleMessage] = useState("");
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [isSlideshowVisible, setIsSlideshowVisible] = useState(false);
+  const [isBioVisible, setIsBioVisible] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -76,28 +84,43 @@ const About = () => {
       setShowBubble(false);
     }, 6800);
 
+    let scrollTimeout;
+    
     const handleScroll = () => {
-      if (headerRef.current && !isHeaderVisible) {
-        const headerTop = headerRef.current.getBoundingClientRect().top;
-        if (headerTop < window.innerHeight * 0.8) {
-          setIsHeaderVisible(true);
+      if (scrollTimeout) return;
+
+      scrollTimeout = requestAnimationFrame(() => {
+        if (headerRef.current && !isHeaderVisible) {
+          const headerTop = headerRef.current.getBoundingClientRect().top;
+          if (headerTop < window.innerHeight * 0.8) {
+            setIsHeaderVisible(true);
+          }
         }
-      }
-      if (slideshowRef.current && !isSlideshowVisible) {
-        const slideshowTop = slideshowRef.current.getBoundingClientRect().top;
-        if (slideshowTop < window.innerHeight * 0.9) {
-          setIsSlideshowVisible(true);
+        if (slideshowRef.current && !isSlideshowVisible) {
+          const slideshowTop = slideshowRef.current.getBoundingClientRect().top;
+          if (slideshowTop < window.innerHeight * 0.9) {
+            setIsSlideshowVisible(true);
+          }
         }
-      }
+        if (bioRef.current && !isBioVisible) {
+          const bioTop = bioRef.current.getBoundingClientRect().top;
+          if (bioTop < window.innerHeight * 0.9) {
+            setIsBioVisible(true);
+          }
+        }
+        scrollTimeout = null;
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+
     return () => {
       clearTimeout(bubbleTimeout);
       clearTimeout(hideBubbleTimeout);
       window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
     };
-  }, [isHeaderVisible, isSlideshowVisible]);
+  }, [isHeaderVisible, isSlideshowVisible, isBioVisible]);
 
   return (
     <div className="about-page">
@@ -111,21 +134,14 @@ const About = () => {
       <div ref={slideshowRef}>
         <InfiniteSlideshow images={images} isSlideshowVisible={isSlideshowVisible} />
       </div>
-      <div className="bio-container">
+      <div ref={bioRef} className={`bio-section ${isBioVisible ? 'slide-in-bio' : ''}`}>
+        <div className="bio-header">About Me</div>
         <div className="bio-content">
-          <img src="/assets/images/river-photo.jpg" alt="River Maners" className="bio-image" />
-          <div className="bio-text">
-            <h2>About Me</h2>
-            <p>
-              Hi, I'm River Maners! I'm currently studying <strong>Computer Information Systems</strong> with a 
-              minor in <strong>Internet Application Development</strong>. I have a passion for web and mobile development, 
-              and I love building interactive user experiences.
-            </p>
-            <p>
-              My interests include <strong>front-end development, UI/UX design, and software engineering</strong>. 
-              I'm always looking to learn new technologies and improve my coding skills.
-            </p>
-          </div>
+          <p>Hi, I'm River Maners! I'm currently studying <strong>Computer Information Systems</strong> with a 
+            minor in <strong>Internet Application Development</strong>. I have a passion for web and mobile development, 
+            and I love building interactive user experiences.</p>
+          <p>My interests include <strong>front-end development, UI/UX design, and software engineering</strong>. 
+            I'm always looking to learn new technologies and improve my coding skills.</p>
         </div>
       </div>
     </div>

@@ -95,7 +95,6 @@
 }
 
 
-
 @keyframes flashColors {
     0% {
         color: rgba(156, 3, 3, 255);
@@ -124,47 +123,64 @@
     100% { transform: translateY(8px); }
 }
 
-/* Centered Bio Section */
-.bio-container {
+/* Initial hidden state for the About Me section */
+.bio-section {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 80%;
+    max-width: 1200px;
+    margin: 50px auto;
+    gap: 50px; /* Space between columns */
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(100px); /* Start off-screen at the bottom */
     transition: opacity 1s ease-out, transform 1s ease-out;
-    margin-top: 50px;
 }
 
-/* Appears on Scroll */
-.bio-container.slide-in-bio {
+/* Slide in from the bottom */
+.bio-section.slide-in-bio {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Flexbox to center image and text */
+/* Left Column: "About Me" Header */
+.bio-header {
+    font-size: 150px;
+    font-weight: bold;
+    color: rgba(156, 3, 3, 255);
+    text-align: left;
+    flex: 1; /* Takes up half the width */
+    line-height: 1; /* Ensures two-line text */
+}
+
+/* Right Column: Information */
 .bio-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 80%;
-    max-width: 900px;
+    flex: 2; 
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 1.2;
+    max-width: 600px;
+    color: rgba(23,112,170,255);
 }
 
-/* Image Styling */
-.bio-image {
-    width: 250px;
-    height: auto;
-    border-radius: 50%;
-    margin-bottom: 20px;
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+    .bio-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bio-header {
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .bio-content {
+        max-width: 100%;
+    }
 }
 
-/* Text Styling */
-.bio-text {
-    max-width: 700px;
-    text-align: center;
-}
+
 
 /* Slideshow Container */
 .slideshow-wrapper {
@@ -220,3 +236,4 @@
     transform: translateX(10px); /* Small push when the slideshow enters */
     transition: transform 1s ease-out;
 }
+
