@@ -137,10 +137,10 @@ const About = () => {
       <div ref={bioRef} className={`bio-section ${isBioVisible ? 'slide-in-bio' : ''}`}>
         <div className="bio-header">About Me</div>
         <div className="bio-content">
-          <p>Hi, I'm River Maners! I'm currently studying <strong>Computer Information Systems</strong> with a 
-            minor in <strong>Internet Application Development</strong>. I have a passion for web and mobile development, 
+          <p>Hi, I'm River Maners! I'm currently studying Computer Information Systems with a 
+            minor in Internet Application Development. I have a passion for web and mobile development, 
             and I love building interactive user experiences.</p>
-          <p>My interests include <strong>front-end development, UI/UX design, and software engineering</strong>. 
+          <p>My interests include front-end development, UI/UX design, and software engineering. 
             I'm always looking to learn new technologies and improve my coding skills.</p>
         </div>
       </div>
