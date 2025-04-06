@@ -69,6 +69,7 @@ const InfiniteSlideshow = ({ images, isSlideshowVisible }) => {
               key={index}
               src={img}
               alt={`Slide ${index + 1}`}
+              loading="lazy"
               className={`slideshow-image slide-${index % images.length}`}
             />
           ))}

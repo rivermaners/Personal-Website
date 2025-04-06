@@ -2,7 +2,7 @@ body{
     background-image: url('../assets/images/marjan-blan-ADfPdLBMeY8-unsplash.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed; 
+    background-attachment: scroll; 
     height: auto; 
     min-height: 100vh; 
 }

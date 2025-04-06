@@ -195,13 +195,13 @@
   white-space: nowrap;
 }
 
-/* Track containing images */
 .slideshow-track {
-  display: flex;
-  align-items: center;
-  gap: 15px; /* Space between images */
-  animation: infiniteScroll 20s linear infinite;
-}
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    animation: infiniteScroll 20s linear infinite;
+  }
+  
 
 /* Image styling */
 .slideshow-image {
