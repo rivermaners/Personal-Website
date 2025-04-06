@@ -77,11 +77,17 @@ const Resume = () => {
       <div className="resume-section">
         <h2>Education</h2>
         <p className="date">August 2021 - May 2025</p>
-        <p>
-          <strong>Illinois Institute of Technology</strong> — B.S. Computer
-          Information Systems
-        </p>
-        <p>Minor in Internet Application Development</p>
+        <h3>
+          <strong>Illinois Institute of Technology</strong>
+        </h3>
+        <div classsname = "degreeList">
+        <ul>
+            <li>B.S. Computer Information Systems</li>
+            <ul>
+                <li>Minor in Internet Application Development</li>
+            </ul>
+        </ul>
+        </div>
       </div>
 
       <hr className="resume-divider" />
