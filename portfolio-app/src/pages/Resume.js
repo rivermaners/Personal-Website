@@ -1,13 +1,54 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/resumeStyle.css";
 import logo from "../assets/images/river-logo.png";
 
 const Resume = () => {
+  const logoRef = useRef(null);
+  const [showBubble, setShowBubble] = useState(false);
+
+  useEffect(() => {
+    if (logoRef.current) {
+      logoRef.current.classList.add("logo-spin-in");
+    }
+
+    const bubbleTimeout = setTimeout(() => {
+      setShowBubble(true);
+    }, 1500);
+
+    const hideTimeout = setTimeout(() => {
+      setShowBubble(false);
+    }, 6500);
+
+    return () => {
+      clearTimeout(bubbleTimeout);
+      clearTimeout(hideTimeout);
+    };
+  }, []);
+
   return (
-    <div className="resume-page">
+    <div className="resume-page fade-in">
       <div className="resume-header">
-        <h1>Joshua River Maners</h1>
+        <div className="header-row">
+          <h1 className="header-name">Joshua River Maners</h1>
+          <div className="header-logo">
+            <img
+              src={logo}
+              alt="River Logo"
+              className="page-logo"
+              ref={logoRef}
+            />
+            {showBubble && (
+              <div className="speech-bubble-resume">
+                <span>You found my resume!</span>
+              </div>
+            )}
+          </div>
+        </div>
+        <a href="/resume.pdf" download className="download-button">
+          Download Resume
+        </a>
       </div>
+
       <hr className="resume-divider" />
 
       <div className="resume-section">
@@ -93,19 +134,40 @@ const Resume = () => {
         <div className="project-grid">
           <div className="project-card">
             <h3>rivermaners.xyz</h3>
-            <p>My personal portfolio website built with React.</p>
+            <p>Personal portfolio website built with React.</p>
             <a href="https://rivermaners.xyz" target="_blank" rel="noreferrer">
-              Visit Site
+              Visit Site →
             </a>
           </div>
 
           <div className="project-card">
             <h3>WIIT Radio Website</h3>
-            <p>
-              Worked on the website for WIIT, a local Chicago radio station.
-            </p>
+            <p>Website for Illinois Tech radio station, WIIT.</p>
             <a href="https://radio.iit.edu/" target="_blank" rel="noreferrer">
-              Visit Site
+              Visit Site →
+            </a>
+          </div>
+
+          <div className="project-card">
+            <h3>Yale School of Art Redesign</h3>
+            <p>Website redesign for the Yale School of Art.</p>
+            <a
+              href="https://rivermaners.github.io/Website-Redesign/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Visit Site →
+            </a>
+          </div>
+          <div className="project-card">
+            <h3>Address Book Website</h3>
+            <p>Basic address book website for class project.</p>
+            <a
+              href="https://jmaners-lab3.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Visit Site →
             </a>
           </div>
         </div>

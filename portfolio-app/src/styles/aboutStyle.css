@@ -153,7 +153,7 @@
 .bio-header {
   font-size: 150px;
   font-weight: bold;
-  color: rgba(156, 3, 3, 255);
+  color: rgba(0, 140, 145, 255);
   text-align: left;
   flex: 1; /* Takes up half the width */
   line-height: 1; /* Ensures two-line text */
