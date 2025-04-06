@@ -1,0 +1,223 @@
+/* Container */
+.resume-page {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Trash Fort', sans-serif;
+    color: rgba(23, 112, 170, 255);
+  }
+  
+  /* Header */
+  .resume-header h1 {
+    margin-left: 30px;
+    font-size: 100px;
+    color: rgba(23, 112, 170, 255);
+    animation: fadeIn 1.5s ease;
+  }
+  
+  /* Sections */
+  .resume-section {
+    margin-top: 60px;
+  }
+  
+  .resume-section h2 {
+    margin-left: 30px;
+    color: rgba(156, 3, 3, 255);
+    font-size: 80px;
+    border-left: 8px solid rgba(156, 3, 3, 0.4);
+    padding-left: 15px;
+  }
+  
+  .resume-section h3 {
+    margin-left: 30px;
+    color: rgba(23, 112, 170, 255);
+    font-size: 40px;
+    margin-top: 30px;
+  }
+  
+  .resume-section .date {
+    margin-left: 30px;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgb(83, 83, 83);
+  }
+  
+  .resume-section ul {
+    margin-left: 60px;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 1.6;
+    list-style: none;
+    padding-left: 1em;
+    color: black;
+  }
+  
+  .resume-section ul li {
+    position: relative;
+    padding-left: 1.6em;
+  }
+  
+  .resume-section ul li::before {
+    content: "";
+    background-image: url("../assets/images/circle.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 0.7em;
+    height: 0.7em;
+    position: absolute;
+    left: 8px;
+    top: 0.5em;
+  }
+  
+  .resume-section p {
+    margin-left: 30px;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 1.5;
+    color: rgba(23, 112, 170, 255);
+  }
+  
+/* Skills Group */
+.skills-group h3 {
+    margin-top: 40px;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+  
+  .skills-grid ul {
+    list-style: none;
+    padding-left: 1em;
+    margin-top: 0px;
+  }
+  
+  .skills-grid ul li {
+    position: relative;
+    padding-left: 1.6em;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+  
+  .skills-grid ul li::before {
+    content: "";
+    background-image: url("../assets/images/circle.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 0.7em;
+    height: 0.7em;
+    position: absolute;
+    left: 8px;
+    top: 0.5em;
+  }
+  
+  
+  /* Project Grid */
+  .project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-left: 30px;
+    margin-top: 30px;
+  }
+  
+  .project-card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 2px solid rgba(23, 112, 170, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  }
+  
+  .project-card h3 {
+    font-size: 28px;
+    color: rgba(156, 3, 3, 255);
+    margin-bottom: 10px;
+  }
+  
+  .project-card a {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: rgba(23, 112, 170, 255);
+    text-decoration: none;
+  }
+  
+  .project-card a:hover {
+    color: rgba(156, 3, 3, 255);
+    text-decoration: underline;
+  }
+  
+  .resume-divider {
+    margin-top: 60px;
+    border: none;
+    border-top: 2px solid rgba(23, 112, 170, 0.7);
+    width: 95%;
+  }
+  
+  /* Logo (if re-added) */
+  .resume-logo {}
+  .resume-logo img {}
+  
+  /* Keyframes */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .resume-header h1 {
+      font-size: 70px;
+      margin-left: 20px;
+    }
+  
+    .resume-section h2 {
+      font-size: 48px;
+      margin-left: 20px;
+    }
+  
+    .resume-section h3 {
+      font-size: 28px;
+      margin-left: 20px;
+    }
+  
+    .resume-section .date,
+    .resume-section ul,
+    .resume-section p {
+      font-size: 20px;
+      margin-left: 20px;
+    }
+  
+    .skills-grid {
+      grid-template-columns: 1fr;
+      margin-left: 20px;
+    }
+  
+    .project-grid {
+      flex-direction: column;
+      align-items: center;
+      padding-left: 0;
+    }
+  
+    .project-card {
+      width: 90%;
+    }
+  }

@@ -159,7 +159,7 @@ const About = () => {
           ref={headerRef}
           className={`who-is-header ${isHeaderVisible ? "slide-in" : ""}`}
         >
-          Who is River Maners
+          Who is River Maners?
         </h1>
       </div>
       <div ref={slideshowRef}>

@@ -1,82 +1,80 @@
 .footer {
-    padding: 30px 20px;
-    background-color: transparent;
-    color: rgba(23, 112, 170, 255);
-    font-family: 'Trash Fort', sans-serif;
+  padding: 30px 20px;
+  background-color: transparent;
+  color: rgba(23, 112, 170, 255);
+  font-family: "Trash Fort", sans-serif;
+  text-align: center;
+}
+
+.footer-divider {
+  margin: 30px auto;
+  border: none;
+  border-top: 2px solid rgba(23, 112, 170, 0.7);
+  width: 95%;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.footer-social a {
+  color: rgba(23, 112, 170, 255);
+  margin: 0 10px;
+  font-size: 22px;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: rgba(156, 3, 3, 255);
+}
+
+.footer-bottom {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .footer-top {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .footer-contact {
+    text-align: left;
+  }
+
+  .footer-social {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .footer-bottom {
     text-align: center;
   }
-  
-  .footer-divider {
-    margin: 30px auto;
-    border: none;
-    border-top: 2px solid rgba(23, 112, 170, 0.7);
-    width: 95%;
-  }
-  
-  .footer-top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .footer-contact p {
-    margin: 5px 0;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-weight: bold;
-  }
-  
-  .footer-social {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 18px;
-    margin-top: 10px;
-  }
-  
-  
-  .footer-social a {
-    color: rgba(23, 112, 170, 255);
-    margin: 0 10px;
-    font-size: 22px;
-    transition: color 0.3s;
-    
-  }
-  
-  .footer-social a:hover {
-    color: rgba(156, 3, 3, 255);
-  }
-  
-  .footer-bottom {
-    margin-top: 15px;
-    font-size: 18px;
-    font-weight: bold;
-  } 
-  
-  @media (min-width: 768px) {
-    .footer-top {
-      flex-direction: row;
-      justify-content: space-around;
-    }
-  
-    .footer-contact {
-      text-align: left;
-    }
-  
-    .footer-social {
-      flex-direction: row;
-      align-items: center;
-    }
-  
-    .footer-bottom {
-      text-align: center;
-    }
-  }
+}

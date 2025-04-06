@@ -5,4 +5,5 @@ body{
     background-attachment: scroll; 
     height: auto; 
     min-height: 100vh; 
+    overflow-x: hidden;
 }
