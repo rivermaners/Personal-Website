@@ -160,7 +160,7 @@ body {
   }
 
   .hamburger:hover {
-    color: rgb(0, 140, 145);
+    color: rgba(0, 140, 145, 255);
   }
 
   .nav-menu {
