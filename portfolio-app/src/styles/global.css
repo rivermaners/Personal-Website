@@ -1,9 +1,159 @@
-body{
-    background-image: url('../assets/images/marjan-blan-ADfPdLBMeY8-unsplash.jpg');
+body {
+  background-image: url("../assets/images/marjan-blan-ADfPdLBMeY8-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ========== GLOBAL MOBILE STYLES ========== */
+@media (max-width: 480px) {
+  body {
     background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: scroll; 
-    height: auto; 
-    min-height: 100vh; 
-    overflow-x: hidden;
+    background-position: center;
+  }
+
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .nav-links {
+    font-size: 25px;
+  }
+
+  .footer-contact p {
+    font-size: 16px;
+    flex-direction: row;
+  }
+
+  .footer-social {
+    font-size: 16px;
+    flex-direction: row !important;
+    gap: 10px;
+  }
+
+  .footer-bottom {
+    font-size: 14px;
+  }
+
+  .contact-header {
+    font-size: 40px !important;
+  }
+
+  .subheader {
+    font-size: 24px !important;
+  }
+
+  .form-group label {
+    font-size: 18px !important;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px !important;
+    padding: 10px !important;
+  }
+
+  .submit-button {
+    font-size: 18px !important;
+    padding: 10px 20px !important;
+  }
+
+  .form-status {
+    font-size: 18px !important;
+    padding: 10px !important;
+  }
+
+  .who-is-header {
+    font-size: 32px !important;
+    margin: 50px 10px !important;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 90vw;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .bio-header {
+    font-size: 50px !important;
+  }
+
+  .bio-content {
+    font-size: 22px !important;
+  }
+
+  .river-logo {
+    width: 250px !important;
+  }
+
+  .slideshow-image {
+    width: 120px !important;
+    height: 160px !important;
+  }
+
+  .header-name {
+    font-size: 50px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .header-logo {
+    width: 20px !important;
+  }
+
+  .download-button {
+    font-size: 20px !important;
+    padding: 8px 16px !important;
+    margin-left: 25px !important;
+  }
+
+  .resume-section h2 {
+    font-size: 36px !important;
+  }
+
+  .resume-section h3,
+  .resume-section .date,
+  .resume-section p,
+  .resume-section ul li {
+    font-size: 18px !important;
+  }
+
+  .skills-grid {
+    gap: 20px !important;
+  }
+
+  .project-card {
+    max-width: 90% !important;
+    margin: 0 auto !important;
+  }
+
+  .project-card a {
+    font-size: 25px !important;
+    margin-left: -10px !important;
+  }
+
+  .header-logo {
+    width: auto !important;
+    max-width: 100% !important;
+    overflow: hidden;
+  }
 }

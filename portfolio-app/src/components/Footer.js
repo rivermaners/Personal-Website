@@ -4,11 +4,9 @@ import {
   FaGithub,
   FaInstagram,
   FaSpotify,
-  FaMapMarkerAlt,
   FaPhoneAlt,
   FaEnvelope,
 } from "react-icons/fa";
-import logo from "../assets/images/river-logo.png";
 import "../styles/footer.css";
 
 const Footer = () => {

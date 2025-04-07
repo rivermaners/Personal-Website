@@ -29,7 +29,7 @@ const Resume = () => {
     <div className="resume-page fade-in">
       <div className="resume-header">
         <div className="header-row">
-          <h1 className="header-name">Joshua River Maners</h1>
+          <h1 className="header-name">River Maners</h1>
           <div className="header-logo">
             <img
               src={logo}
@@ -80,13 +80,13 @@ const Resume = () => {
         <h3>
           <strong>Illinois Institute of Technology</strong>
         </h3>
-        <div classsname = "degreeList">
-        <ul>
+        <div classsname="degreeList">
+          <ul>
             <li>B.S. Computer Information Systems</li>
             <ul>
-                <li>Minor in Internet Application Development</li>
+              <li>Minor in Internet Application Development</li>
             </ul>
-        </ul>
+          </ul>
         </div>
       </div>
 

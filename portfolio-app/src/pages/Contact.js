@@ -33,7 +33,9 @@ const Contact = () => {
     })
       .then((response) => {
         if (response.ok) {
-          setStatusMessage("Thank you for reaching out! I will get back to you soon.");
+          setStatusMessage(
+            "Thank you for reaching out! I will get back to you soon."
+          );
           setStatusType("success");
           setFormData({ firstName: "", lastName: "", email: "", message: "" });
         } else {

@@ -86,29 +86,28 @@
 }
 
 .form-status {
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
-    padding: 15px 20px;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .form-status.success {
-    background-color: rgb(228, 228, 228);
-    border: 2px solid rgba(0, 140, 145, 1);
-    color: rgba(0, 140, 145, 1);
-  }
-  
-  .form-status.error {
-    background-color: rgb(228, 228, 228);
-    border: 2px solid rgba(156, 3, 3, 1);
-    color: rgba(156, 3, 3, 1);
-  }
-  
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-status.success {
+  background-color: rgb(228, 228, 228);
+  border: 2px solid rgba(0, 140, 145, 1);
+  color: rgba(0, 140, 145, 1);
+}
+
+.form-status.error {
+  background-color: rgb(228, 228, 228);
+  border: 2px solid rgba(156, 3, 3, 1);
+  color: rgba(156, 3, 3, 1);
+}
 
 @media (max-width: 768px) {
   .contact-header {
