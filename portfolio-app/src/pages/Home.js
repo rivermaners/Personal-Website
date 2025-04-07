@@ -43,8 +43,8 @@ const Home = () => {
 
   const handleChat = () => {
     if (showChat) {
-      setShowChat(false); // Force hide before showing again
-      setTimeout(() => triggerChat(), 50); // Small delay before showing again
+      setShowChat(false);
+      setTimeout(() => triggerChat(), 50);
     } else {
       triggerChat();
     }
@@ -57,27 +57,26 @@ const Home = () => {
 
     setChatMessage(randomPhrase);
     setShowChat(true);
-    setIsDizzy(false); // Reset dizzy state
+    setIsDizzy(false);
 
     if (chatTimeout) clearTimeout(chatTimeout);
 
-    const newTimeout = setTimeout(() => setShowChat(false), 3000); // Chat stays for 3s
+    const newTimeout = setTimeout(() => setShowChat(false), 3000);
     setChatTimeout(newTimeout);
   };
 
   return (
     <div className="home">
       <div className="border"></div>
-      <h1 className={`top-left ${animate ? "animate" : ""}`}>River Maners !</h1>
-      <h1 className={`bottom-right ${animate ? "animate" : ""}`}>
-        River Maners !
-      </h1>
-      <h1 className={`bottom-left ${animate ? "animate" : ""}`}>
-        River Maners !
-      </h1>
-      <h1 className={`top-right ${animate ? "animate" : ""}`}>
-        River Maners !
-      </h1>
+
+      <div className="header-stack top-stack">
+        <h1 className={`top-left ${animate ? "animate" : ""}`}>River Maners !</h1>
+        <h1 className={`top-right ${animate ? "animate" : ""}`}>River Maners !</h1>
+      </div>
+
+      <button onClick={handleSpin} className="spin-button">
+        <span>Spin</span>
+      </button>
 
       <div className="image-container">
         <img
@@ -92,12 +91,14 @@ const Home = () => {
         )}
       </div>
 
-      <button onClick={handleSpin} className="spin-button">
-        <span>Spin</span>
-      </button>
       <button onClick={handleChat} className="chat-button">
         <span>Chat</span>
       </button>
+
+      <div className="header-stack bottom-stack">
+        <h1 className={`bottom-left ${animate ? "animate" : ""}`}>River Maners !</h1>
+        <h1 className={`bottom-right ${animate ? "animate" : ""}`}>River Maners !</h1>
+      </div>
     </div>
   );
 };

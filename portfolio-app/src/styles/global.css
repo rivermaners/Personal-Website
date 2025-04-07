@@ -30,19 +30,8 @@ body {
     box-sizing: inherit;
   }
 
-  .nav-menu {
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
-
-  .nav-links {
-    font-size: 25px;
-  }
-
   .footer-contact p {
     font-size: 16px;
-    flex-direction: row;
   }
 
   .footer-social {
@@ -85,7 +74,7 @@ body {
 
   .who-is-header {
     font-size: 32px !important;
-    margin: 50px 10px !important;
+    margin: 70px 10px !important;
     text-align: center;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -114,10 +103,6 @@ body {
   .header-name {
     font-size: 50px !important;
     margin-bottom: 20px !important;
-  }
-
-  .header-logo {
-    width: 20px !important;
   }
 
   .download-button {
@@ -155,5 +140,62 @@ body {
     width: auto !important;
     max-width: 100% !important;
     overflow: hidden;
+  }
+
+  .hamburger {
+    display: block !important;
+    font-size: 30px !important;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    top: 15px; /* move it down from top */
+    right: 20px;
+    color: rgb(0, 140, 145); /* your brand blue */
+    transition: color 0.3s ease;
+  }
+
+  .hamburger:hover {
+    color: rgba(23, 112, 170, 255); /* your darker blue */
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(197, 197, 197);
+    z-index: 1000;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-menu.active {
+    display: flex !important;
+  }
+
+  .nav-links {
+    font-size: 35px !important;
+    text-align: center;
+    color: rgba(23, 112, 170, 255);
+    text-decoration: none;
+  }
+
+  .nav-links:hover{
+    color: rgba(0, 140, 145, 255);
+    text-decoration: underline;
+  }
+
+}
+
+@media (min-width: 481px) {
+  .hamburger {
+    display: none;
   }
 }

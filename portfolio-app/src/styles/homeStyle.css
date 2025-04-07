@@ -188,8 +188,8 @@
 
 .speech-bubble-home {
   position: absolute !important;
-  top: 20px !important; /* Moves it up */
-  left: 60% !important; /* Moves it more to the right */
+  top: 20px !important;
+  left: 60% !important;
   background-color: white !important;
   font-weight: bold !important;
   padding: 10px 20px !important;
@@ -198,16 +198,15 @@
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2) !important;
   animation: fadeIn 0.3s ease-in-out forwards !important;
   opacity: 1 !important;
-  white-space: nowrap !important; /* Prevents text wrapping */
-  max-width: 600px !important; /* Limits bubble width */
-  min-width: 200px !important; /* Ensures a minimum width */
-  display: flex !important; /* Uses flexbox for centering */
-  justify-content: center !important; /* Centers text horizontally */
-  align-items: center !important; /* Centers text vertically */
-  text-align: center !important; /* Ensures text remains centered */
+  white-space: nowrap !important;
+  max-width: 600px !important;
+  min-width: 200px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
 }
 
-/* Ensure Text is Properly Centered */
 .speech-bubble-home span {
   display: inline-block !important;
   text-align: center !important;
@@ -217,18 +216,19 @@
   text-overflow: ellipsis !important;
 }
 
-/* Move Arrow to Bottom Left */
 .speech-bubble-home::after {
   content: "" !important;
   position: absolute !important;
-  bottom: -10px !important; /* Places arrow at the bottom */
-  left: 15px !important; /* Moves arrow to the left side */
+  bottom: -10px !important;
+  left: 15px !important;
   width: 0 !important;
   height: 0 !important;
   border-left: 10px solid transparent !important;
   border-right: 10px solid transparent !important;
-  border-top: 10px solid white !important; /* Arrow points up */
+  border-top: 10px solid white !important;
 }
+
+
 
 @keyframes fadeInOut {
   0% {
@@ -255,56 +255,126 @@
     justify-content: flex-start;
     align-items: center;
     padding-top: 40px;
+    overflow-x: hidden;
+    animation: fadeInMobile 1.5s ease-in-out both;
+  }
+  @keyframes fadeInMobile {
+    from {
+      opacity: 0;
+      transform: translateY(0px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .top-left,
-  .top-right {
-    position: static;
-    display: block;
-    font-size: 32px;
-    opacity: 1 !important;
-    animation: none !important;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
+  .top-right,
   .bottom-left,
   .bottom-right {
-    position: static;
+    position: static !important;
     display: block;
-    font-size: 32px;
+    font-size: 48px !important;
+    text-align: center;
     opacity: 1 !important;
     animation: none !important;
-    text-align: center;
-    margin-bottom: 10px;
+    text-shadow: 0px 40px rgba(23, 112, 170, 0.5),
+      0px 80px rgba(23, 112, 170, 0.25) !important;
+    line-height: 0.8 !important;
+    margin: 0 !important;
+  }
+
+  .top-left {
+    margin-top: 40px !important;
+  }
+
+  .top-right {
+    margin-top: -38px !important;
   }
 
   .image-container {
-    margin-top: 300px;
-    margin-left: 300px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 30px 0 !important;
+  }
+
+  .river-image {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .bottom-left {
+    margin-top: 30px !important;
+  }
+
+  .bottom-right {
+    margin-top: -38px !important;
+  }
+
+  .river-image {
+    width: 180px !important;
+    height: auto;
   }
 
   .spin-button {
-    position: static;
-    margin-top: -250px;
-    margin-right: 130px;
-    transform: none;
+    position: static !important;
+    margin-top: 120px;
+    margin-left: -250px;
+    margin-bottom: -30px;
+    width: 180px !important;
+    height: 100px !important;
+    background-size: contain !important;
+    transform: none !important;
   }
 
   .chat-button {
-    position: static;
-    margin-top: -150px;
-    margin-left: 710px;
-    transform: none;
+    position: static !important;
+    margin: 10px auto;
+    margin-right: 5px !important;
+    width: 180px !important;
+    height: 100px !important;
+    background-size: contain !important;
+    transform: none !important;
+  }
+
+  .spin-button span,
+  .chat-button span {
+    font-size: 22px !important;
   }
 
   .speech-bubble-home {
-    top: 50px !important;
-    left: 350px !important;
-    transform: translateX(-50%) !important;
-    font-size: 18px !important;
-    max-width: 90% !important;
-    min-width: auto !important;
+    position: absolute !important;
+    top: -10px !important;
+    left: auto !important;
+    right: 15px !important;
+    transform: none !important;
+    background-color: white !important;
+    font-weight: bold !important;
     padding: 8px 12px !important;
+    border-radius: 12px !important;
+    font-size: 16px !important;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15) !important;
+    z-index: 5;
+    max-width: 80vw !important;
+    width: fit-content !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+
+  .speech-bubble-home::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -10px !important;
+
+    /* Tail aligned with left edge of bubble */
+    left: 15px !important;
+    transform: none !important;
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
   }
 }

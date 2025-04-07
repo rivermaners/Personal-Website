@@ -169,6 +169,40 @@
   color: rgba(23, 112, 170, 255);
 }
 
+@media (max-width: 480px) {
+  .speech-bubble-about {
+    position: absolute !important;
+    top: 200px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    background-color: white !important;
+    font-weight: bold !important;
+    padding: 8px 12px !important;
+    border-radius: 12px !important;
+    font-size: 16px !important;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15) !important;
+    z-index: 5;
+    max-width: 90vw !important;
+    width: fit-content !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+
+  .speech-bubble-about::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+  }
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 900px) {
   .bio-section {
