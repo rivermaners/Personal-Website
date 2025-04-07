@@ -141,30 +141,40 @@
 
 /* Spin button position */
 .spin-button {
-  top: 50%;
-  left: 10%;
-  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 180px;
+  padding: 0;
   background-image: url("../assets/images/bubble.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  overflow: hidden;
+  margin-left: -1200px;
 }
 
 /* Chat button position */
 .chat-button {
-  top: 50%;
-  right: 10%;
-  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 180px;
+  padding: 0;
   background-image: url("../assets/images/bubble.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  overflow: hidden;
+  margin-left: 1200px;
 }
 
 /* Center text inside buttons */
 .spin-button span,
 .chat-button span {
-  font-size: 30px;
+  font-size: 35px;
   font-family: "Trash Fort", sans-serif;
   text-align: center;
   padding-right: 10px;
@@ -228,8 +238,6 @@
   border-top: 10px solid white !important;
 }
 
-
-
 @keyframes fadeInOut {
   0% {
     opacity: 0;
@@ -261,8 +269,9 @@
     padding-bottom: 40px !important;
     box-sizing: border-box !important;
     position: relative !important;
+    animation: fadeInMobile 1.5s ease-in-out both;
   }
-  
+
   @keyframes fadeInMobile {
     from {
       opacity: 0;
