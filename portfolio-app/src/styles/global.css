@@ -149,14 +149,14 @@ body {
     border: none;
     cursor: pointer;
     z-index: 1001;
-    top: 15px; /* move it down from top */
+    top: 15px; 
     right: 20px;
-    color: rgb(0, 140, 145); /* your brand blue */
+    color:  rgba(23, 112, 170, 255);
     transition: color 0.3s ease;
   }
 
   .hamburger:hover {
-    color: rgba(23, 112, 170, 255); /* your darker blue */
+    color: rgb(0, 140, 145);
   }
 
   .nav-menu {
