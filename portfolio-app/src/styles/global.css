@@ -111,6 +111,10 @@ body {
     margin-left: 25px !important;
   }
 
+  .resume-divider{
+    margin-bottom: 50px !important;
+  }
+
   .resume-section h2 {
     font-size: 36px !important;
   }
