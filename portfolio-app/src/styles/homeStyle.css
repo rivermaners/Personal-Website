@@ -251,13 +251,18 @@
 
 @media (max-width: 480px) {
   .home {
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 40px;
-    overflow-x: hidden;
-    animation: fadeInMobile 1.5s ease-in-out both;
+    min-height: 100vh !important;
+    height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
   }
+  
   @keyframes fadeInMobile {
     from {
       opacity: 0;
