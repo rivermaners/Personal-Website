@@ -44,7 +44,7 @@ const Resume = () => {
             )}
           </div>
         </div>
-        <a href="/resume.pdf" download className="download-button">
+        <a href="/Resume - Joshua River Maners.docx.pdf - " download className="download-button">
           Download Resume
         </a>
       </div>
