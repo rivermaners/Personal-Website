@@ -44,7 +44,7 @@ const Resume = () => {
             )}
           </div>
         </div>
-        <a href="/Resume - Joshua River Maners.docx.pdf" download className="download-button">
+        <a href={process.env.PUBLIC_URL + "/Resume - Joshua River Maners.docx.pdf"} download className="download-button">
           Download Resume
         </a>
       </div>
