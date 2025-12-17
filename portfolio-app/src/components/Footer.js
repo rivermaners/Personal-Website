@@ -15,10 +15,6 @@ const Footer = () => {
       <hr className="footer-divider" />
       <div className="footer-top">
         <div className="footer-contact">
-          <p>
-            <FaPhoneAlt /> (661) 607-5737 &nbsp;&nbsp;
-          </p>
-          <p>
             <FaEnvelope /> river.maners@gmail.com
           </p>
           <div className="footer-social">
